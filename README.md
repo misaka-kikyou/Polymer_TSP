@@ -24,3 +24,9 @@ xgboost      | 2.1.1
 
 We suggest using Anaconda to build the python environment, as there are several default packages used in the scripts but not mentioned above. All test were executed under Windows 11 NT x64 10.0.22000 on Visual Studio Code 1.93.1.
 
+Scatter plot comparing predicted versus experimental tensile strength values (MPa) for the XGBoost regression model. 
+![image](https://github.com/user-attachments/assets/4bbab867-0d60-4c89-acd1-5fc369058ed5)
+
+Feature correlation matrix (bubble plot) showing relationships between molecular descriptors. Red bubbles indicate positive correlations, blue bubbles indicate negative correlations, and bubble size represents correlation magnitude. 
+![image](https://github.com/user-attachments/assets/0edc125c-16e4-4d5e-8521-8ca646085099)
+
