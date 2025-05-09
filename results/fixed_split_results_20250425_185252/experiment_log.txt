@@ -1,0 +1,143 @@
+Starting fixed train/test split evaluation - 2025-04-25 18:52:52
+Reading data...
+Successfully read data file
+Processing data...
+After feature selection, retained 39 features
+
+Training set size: 35 samples
+Test set size: 16 samples
+Training set numbers: [38, 35, 20, 50, 16, 10, 17, 28, 46, 27, 12, 1, 47, 29, 36, 6, 31, 39, 2, 22, 3, 41, 37, 24, 43, 11, 23, 19, 52, 21, 8, 44, 15, 30, 40]
+Test set numbers: [45, 42, 48, 13, 25, 33, 18, 34, 4, 32, 14, 9, 51, 7, 49, 5]
+
+Evaluating baseline model...
+Baseline model performance (all training data):
+R²: 0.6332
+MAE: 7.0616
+RMSE: 8.7332
+Evaluation time: 0.23 seconds
+
+Training samples sorted by residuals (top 10):
+Number 19.0: Residual = 33.9081, Absolute Residual = 33.9081
+Number 38.0: Residual = -18.3419, Absolute Residual = 18.3419
+Number 37.0: Residual = -17.5119, Absolute Residual = 17.5119
+Number 35.0: Residual = 7.5381, Absolute Residual = 7.5381
+Number 36.0: Residual = -4.6519, Absolute Residual = 4.6519
+Number 50.0: Residual = 4.5213, Absolute Residual = 4.5213
+Number 23.0: Residual = 3.2922, Absolute Residual = 3.2922
+Number 24.0: Residual = -2.1736, Absolute Residual = 2.1736
+Number 1.0: Residual = -1.5842, Absolute Residual = 1.5842
+Number 40.0: Residual = -1.3650, Absolute Residual = 1.3650
+
+Starting evaluation of each training sample's impact...
+Number of removable training samples: 18
+Removing point #38.0 (index 36.0): R2 change = 0.0027, MAE change = -0.0028
+Removing point #37.0 (index 35.0): R2 change = -0.0158, MAE change = 0.2053
+Removing point #35.0 (index 33.0): R2 change = -0.0000, MAE change = 0.0604
+Removing point #36.0 (index 34.0): R2 change = 0.0477, MAE change = -0.7796
+Removing point #50.0 (index 48.0): R2 change = -0.0361, MAE change = 0.3007
+Removing point #40.0 (index 38.0): R2 change = -0.0250, MAE change = 0.3691
+Removing point #31.0 (index 29.0): R2 change = -0.1161, MAE change = 1.0037
+Removing point #44.0 (index 42.0): R2 change = -0.4583, MAE change = 1.5060
+Removing point #46.0 (index 44.0): R2 change = -0.0198, MAE change = 0.3641
+Removing point #39.0 (index 37.0): R2 change = 0.0541, MAE change = -0.4361
+Removing point #47.0 (index 45.0): R2 change = -0.0935, MAE change = 1.0927
+Removing point #52.0 (index 50.0): R2 change = 0.0017, MAE change = -0.0001
+Removing point #29.0 (index 27.0): R2 change = 0.0102, MAE change = -0.1769
+Removing point #43.0 (index 41.0): R2 change = 0.0046, MAE change = 0.1573
+Removing point #30.0 (index 28.0): R2 change = 0.0522, MAE change = -0.4635
+Removing point #27.0 (index 25.0): R2 change = 0.0435, MAE change = -0.7768
+Removing point #28.0 (index 26.0): R2 change = 0.0336, MAE change = -0.3442
+Removing point #41.0 (index 39.0): R2 change = -0.0077, MAE change = 0.1533
+
+Impact of each point on model performance (sorted by R2 improvement):
+Number 39.0: R2 change = 0.0541, MAE change = -0.4361
+Number 30.0: R2 change = 0.0522, MAE change = -0.4635
+Number 36.0: R2 change = 0.0477, MAE change = -0.7796
+Number 27.0: R2 change = 0.0435, MAE change = -0.7768
+Number 28.0: R2 change = 0.0336, MAE change = -0.3442
+Number 29.0: R2 change = 0.0102, MAE change = -0.1769
+Number 43.0: R2 change = 0.0046, MAE change = 0.1573
+Number 38.0: R2 change = 0.0027, MAE change = -0.0028
+Number 52.0: R2 change = 0.0017, MAE change = -0.0001
+Number 35.0: R2 change = -0.0000, MAE change = 0.0604
+Number 41.0: R2 change = -0.0077, MAE change = 0.1533
+Number 37.0: R2 change = -0.0158, MAE change = 0.2053
+Number 46.0: R2 change = -0.0198, MAE change = 0.3641
+Number 40.0: R2 change = -0.0250, MAE change = 0.3691
+Number 50.0: R2 change = -0.0361, MAE change = 0.3007
+Number 47.0: R2 change = -0.0935, MAE change = 1.0927
+Number 31.0: R2 change = -0.1161, MAE change = 1.0037
+Number 44.0: R2 change = -0.4583, MAE change = 1.5060
+
+Evaluating impact of best point combinations...
+Found 9 points that improve R2 when removed
+Will test combinations of removing the top 9 most impactful points
+Points considered for removal: [39.0, 30.0, 36.0, 27.0, 28.0, 29.0, 43.0, 38.0, 52.0]
+
+Testing combinations of removing 1 points...
+Best 1-point combination: [39]
+R²: 0.6873 (change: +0.0541)
+MAE: 6.6256 (change: -0.4361)
+RMSE: 8.0631 (change: -0.6700)
+
+Testing combinations of removing 2 points...
+Best 2-point combination: [30, 52]
+R²: 0.7136 (change: +0.0804)
+MAE: 6.0920 (change: -0.9697)
+RMSE: 7.7168 (change: -1.0163)
+
+Testing combinations of removing 3 points...
+Best 3-point combination: [30, 27, 28]
+R²: 0.7474 (change: +0.1143)
+MAE: 5.7631 (change: -1.2986)
+RMSE: 7.2463 (change: -1.4869)
+
+Testing combinations of removing 4 points...
+Best 4-point combination: [39, 30, 27, 52]
+R²: 0.7647 (change: +0.1316)
+MAE: 6.2084 (change: -0.8532)
+RMSE: 6.9938 (change: -1.7394)
+
+Testing combinations of removing 5 points...
+Best 5-point combination: [30, 27, 28, 38, 52]
+R²: 0.7622 (change: +0.1290)
+MAE: 5.3196 (change: -1.7421)
+RMSE: 7.0314 (change: -1.7018)
+
+Testing combinations of removing 6 points...
+Best 6-point combination: [39, 30, 36, 27, 28, 52]
+R²: 0.7947 (change: +0.1615)
+MAE: 4.9809 (change: -2.0807)
+RMSE: 6.5339 (change: -2.1993)
+
+Testing combinations of removing 7 points...
+Best 7-point combination: [39, 30, 36, 27, 43, 38, 52]
+R²: 0.7361 (change: +0.1030)
+MAE: 6.3320 (change: -0.7296)
+RMSE: 7.4065 (change: -1.3267)
+
+Testing combinations of removing 8 points...
+Best 8-point combination: [39, 30, 36, 27, 28, 29, 38, 52]
+R²: 0.7469 (change: +0.1137)
+MAE: 5.4632 (change: -1.5985)
+RMSE: 7.2542 (change: -1.4789)
+
+Testing combinations of removing 9 points...
+
+===============================
+Best Overall Combination Results
+===============================
+Number of data points removed: 6
+Removed data points: [39, 30, 36, 27, 28, 52]
+Final R²: 0.7947
+Final MAE: 4.9809
+Final RMSE: 6.5339
+R2 improvement over baseline: +0.1615 (+25.51%)
+
+All results saved to directory: fixed_split_results_20250425_185252
+
+Experiment completed! Total time: 0 hours 1 minutes 43.51 seconds
+Copied best_combo_comparison.png to current directory
+Copied individual_point_impacts.png to current directory
+Copied baseline_analysis.png to current directory
+All results and charts saved to directory: fixed_split_results_20250425_185252

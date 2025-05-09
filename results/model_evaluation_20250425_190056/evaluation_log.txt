@@ -1,0 +1,106 @@
+Starting model evaluation - 2025-04-25 19:00:56
+
+Step 1: Reading datasets...
+Successfully read training set, shape: (29, 42)
+Successfully read test set, shape: (16, 45)
+Successfully read preprocessing information
+
+Step 2: Preparing features and target variables...
+Using feature columns from preprocessing info: 39 features
+Training features shape: (29, 39)
+Test features shape: (16, 39)
+
+Step 3: Feature correlation analysis...
+Feature correlation matrix calculated, shape: (40, 40)
+
+Top 10 features with highest correlation to target variable:
+1. NumEster: 0.4983
+2. NumCO: 0.4983
+3. NumEther: 0.4983
+4. Kappa1: 0.4437
+5. TPSA: 0.4096
+6. NumHAcceptors: 0.3849
+7. ExactMolWt: 0.3356
+8. MolWt: 0.3355
+9. HeavyAtomCount: 0.3324
+10. LabuteASA: 0.2740
+
+Step 4: Training model...
+
+Model parameters:
+  n_estimators: 158
+  learning_rate: 0.14307675214589186
+  max_depth: 8
+  min_samples_split: 3
+  min_samples_leaf: 6
+  subsample: 0.8885344819700561
+  max_features: 0.3227577583444496
+  alpha: 0.35142192644949233
+Model training completed, time taken: 0.08 seconds
+
+Step 5: Model performance evaluation...
+
+Training set performance metrics:
+  R²: 0.7113
+  MAE: 4.7597
+  RMSE: 8.8667
+
+Test set performance metrics:
+  R²: 0.8511
+  MAE: 4.5205
+  RMSE: 5.5645
+
+Step 6: Model performance visualization...
+
+Step 7: Feature importance analysis...
+
+Model feature importance ranking (Top 10):
+17. BalabanJ: 0.187719
+15. NumEther: 0.102116
+20. Chi1: 0.084810
+11. HeavyAtomCount: 0.074789
+4. TPSA: 0.068707
+3. LogP: 0.065990
+38. Polarity_Diff_AB: 0.051395
+39. LogP_Diff_AB: 0.043944
+16. NumCO: 0.041973
+18. BertzCT: 0.035378
+
+Step 8: SHAP value analysis...
+  Creating SHAP explainer...
+
+SHAP feature importance ranking (Top 10):
+17. BalabanJ: 4.540300
+15. NumEther: 2.997562
+3. LogP: 2.602366
+4. TPSA: 2.452064
+20. Chi1: 1.744616
+11. HeavyAtomCount: 1.382480
+16. NumCO: 1.314200
+38. Polarity_Diff_AB: 1.099932
+6. NumHAcceptors: 1.044489
+18. BertzCT: 1.004440
+
+Step 9: Learning curve analysis...
+  Learning curve analysis completed
+
+Step 10: Individual case analysis...
+
+Top 5 most accurate predictions:
+  Sample No: 4.0, Actual: 3.3600, Predicted: 3.8714, Residual: -0.5114
+  Sample No: 5.0, Actual: 19.6300, Predicted: 18.6834, Residual: 0.9466
+  Sample No: 14.0, Actual: 12.7200, Predicted: 11.2869, Residual: 1.4331
+  Sample No: 48.0, Actual: 13.1600, Predicted: 14.7176, Residual: -1.5576
+  Sample No: 13.0, Actual: 16.2500, Predicted: 14.6397, Residual: 1.6103
+
+Top 5 least accurate predictions:
+  Sample No: 9.0, Actual: 49.3200, Predicted: 42.9866, Residual: 6.3334
+  Sample No: 25.0, Actual: 46.4300, Predicted: 40.0496, Residual: 6.3804
+  Sample No: 18.0, Actual: 44.4900, Predicted: 36.4409, Residual: 8.0491
+  Sample No: 49.0, Actual: 13.8200, Predicted: 24.6541, Residual: -10.8341
+  Sample No: 33.0, Actual: 3.3600, Predicted: 14.4829, Residual: -11.1229
+
+Step 11: Saving model and results...
+
+Model evaluation completed! Total time taken: 0 minutes 19.75 seconds
+All results and charts saved to directory: model_evaluation_20250425_190056

@@ -1,0 +1,211 @@
+Starting feature engineering and model improvement - 2025-04-25 19:43:40
+Loading data...
+Data loaded successfully, shape: (51, 59)
+
+=== Step 1: Basic Data Processing ===
+Removed 'No' column
+Target variable: Mpa, number of features: 57
+Target variable skewness: 0.6912
+Target variable skewness > 0.5, attempting log transformation
+Transformed target variable skewness: -0.5641
+Using log-transformed target variable
+
+=== Step 2: Feature Engineering ===
+Number of features after variance threshold: 39
+Number of polynomial features (with interactions): 1653
+Number of polynomial features after variance threshold: 1044
+Number of features after transformations: 171
+Number of features after variance threshold: 114
+Number of PCA features (explaining 90.0% variance): 6
+Variance explained by PCA: 0.9126
+Number of features combining original and PCA: 63
+Created 6 feature sets
+
+=== Step 3: Feature Set Evaluation ===
+
+Evaluating feature set: original (number of features: 57)
+Performance on transformed scale: R²: 0.5905 ± 0.1269, MAE: 0.3394, RMSE: 0.4833
+Performance on original scale: MAE: 7.0510, RMSE: 10.6685
+
+Evaluating feature set: variance_threshold (number of features: 39)
+Performance on transformed scale: R²: 0.4096 ± 0.1480, MAE: 0.4179, RMSE: 0.5889
+Performance on original scale: MAE: 8.7133, RMSE: 11.8564
+
+Evaluating feature set: polynomial (number of features: 1044)
+Performance on transformed scale: R²: 0.4524 ± 0.2441, MAE: 0.3777, RMSE: 0.5745
+Performance on original scale: MAE: 7.5490, RMSE: 11.0152
+
+Evaluating feature set: transformations (number of features: 114)
+Performance on transformed scale: R²: 0.3995 ± 0.1505, MAE: 0.4254, RMSE: 0.5918
+Performance on original scale: MAE: 8.6637, RMSE: 11.7974
+
+Evaluating feature set: pca (number of features: 6)
+Performance on transformed scale: R²: -0.1844 ± 0.4573, MAE: 0.6079, RMSE: 0.8485
+Performance on original scale: MAE: 11.9399, RMSE: 15.7807
+
+Evaluating feature set: original_plus_pca (number of features: 63)
+Performance on transformed scale: R²: 0.5031 ± 0.2003, MAE: 0.3638, RMSE: 0.5299
+Performance on original scale: MAE: 7.4868, RMSE: 10.8473
+
+Best feature set: original - R²: 0.5905
+Using original feature set for subsequent analysis (number of features: 57)
+
+Plotting feature set performance comparison...
+
+=== Step 4: Feature Selection ===
+
+Applying model-based feature selection...
+Number of features selected by model-based method: 29
+Selected features: mol%, MolWt, ExactMolWt, LogP, TPSA, LabuteASA, NumHAcceptors, NumRotatableBonds, FractionCSP3, HeavyAtomCount, RotatableBondRatio, NumBonds, NumHydroxyl, NumEster, NumEther, NumCO, BalabanJ, BertzCT, Chi0, Chi1, Kappa1, CrosslinkingPotential, AromaticAtomRatio, Cat_Concentration, Ratio_A, Polarity_Diff_AB, LogP_Diff_AB, Total_Crosslink_Potential, Rigidity_Flexibility_Balance
+
+Applying recursive feature elimination...
+Number of features selected by recursive elimination: 5
+Selected features: mol%, TPSA, FractionCSP3, RotatableBondRatio, AromaticAtomRatio
+Error during RFECV: 'RFECV' object has no attribute 'grid_scores_'
+
+Evaluating feature selection methods...
+
+Evaluating feature set: original (number of features: 57)
+Performance on transformed scale: R²: 0.5905 ± 0.1269, MAE: 0.3394, RMSE: 0.4833
+Performance on original scale: MAE: 7.0510, RMSE: 10.6685
+
+Evaluating feature set: model_selected (number of features: 29)
+Performance on transformed scale: R²: 0.5985 ± 0.1401, MAE: 0.3230, RMSE: 0.4817
+Performance on original scale: MAE: 6.6090, RMSE: 10.3234
+
+Evaluating feature set: rfe_selected (number of features: 29)
+Performance on transformed scale: R²: 0.5985 ± 0.1401, MAE: 0.3230, RMSE: 0.4817
+Performance on original scale: MAE: 6.6090, RMSE: 10.3234
+
+Best feature selection method: model_selected - R²: 0.5985
+Using model_selected feature set for subsequent analysis (number of features: 29)
+
+Calculating final feature importances...
+
+=== Step 5: Advanced Model Training ===
+
+Training and evaluating multiple models...
+
+Training model: GradientBoosting
+Performance on transformed scale: R²: 0.5985 ± 0.1401, MAE: 0.3230, RMSE: 0.4817
+Performance on original scale: MAE: 6.6090, RMSE: 10.3234
+
+Training model: RandomForest
+Performance on transformed scale: R²: 0.5693 ± 0.2204, MAE: 0.3490, RMSE: 0.5175
+Performance on original scale: MAE: 7.1472, RMSE: 9.8390
+
+Training model: ExtraTrees
+Performance on transformed scale: R²: 0.6302 ± 0.2343, MAE: 0.3184, RMSE: 0.4899
+Performance on original scale: MAE: 6.2116, RMSE: 8.9484
+
+Training model: XGBoost
+Performance on transformed scale: R²: 0.5195 ± 0.2529, MAE: 0.3678, RMSE: 0.5548
+Performance on original scale: MAE: 7.4642, RMSE: 10.9839
+
+Training model: LightGBM
+Performance on transformed scale: R²: 0.2454 ± 0.1539, MAE: 0.5201, RMSE: 0.6558
+Performance on original scale: MAE: 10.4723, RMSE: 13.8360
+
+Training model: SVR
+Performance on transformed scale: R²: 0.3863 ± 0.2259, MAE: 0.4572, RMSE: 0.6118
+Performance on original scale: MAE: 8.6292, RMSE: 11.8034
+
+Training model: KNN
+Performance on transformed scale: R²: 0.2025 ± 0.3115, MAE: 0.5039, RMSE: 0.6970
+Performance on original scale: MAE: 9.7094, RMSE: 13.4875
+
+Training model: ElasticNet
+Performance on transformed scale: R²: 0.0801 ± 0.2645, MAE: 0.5416, RMSE: 0.7296
+Performance on original scale: MAE: 12.7929, RMSE: 22.3436
+
+Training model: MLP
+Performance on transformed scale: R²: 0.1612 ± 0.5176, MAE: 0.4809, RMSE: 0.7164
+Performance on original scale: MAE: 11.2450, RMSE: 17.8612
+
+Training model: GaussianProcess
+Performance on transformed scale: R²: -4.3301 ± 3.4729, MAE: 1.3552, RMSE: 1.7005
+Performance on original scale: MAE: 15.9763, RMSE: 20.8375
+
+Best single model: ExtraTrees - R²: 0.6302
+
+Plotting model performance comparison...
+
+=== Step 6: Ensemble Model Training ===
+
+Selected top 3 models for ensemble: ExtraTrees, GradientBoosting, RandomForest
+
+Training Voting ensemble model...
+Performance on transformed scale: R²: 0.6472 ± 0.1826, MAE: 0.3057, RMSE: 0.4681
+Performance on original scale: MAE: 5.9637, RMSE: 8.7468
+
+Training Stacking ensemble model...
+Performance on transformed scale: R²: 0.3801 ± 0.3178, MAE: 0.4458, RMSE: 0.6233
+Performance on original scale: MAE: 8.4939, RMSE: 11.1092
+
+Best overall model: Voting Ensemble - R²: 0.6472
+
+Improvement over original Gradient Boosting model: 0.0487 (+8.14%)
+
+Plotting original vs best model comparison...
+
+Training final model...
+Final model saved to 'feature_model_improvements_20250425_194340\models\final_model.pkl'
+Preprocessing information saved to 'feature_model_improvements_20250425_194340\models\preprocessing_info.pkl'
+All model performances saved to 'feature_model_improvements_20250425_194340\all_model_performances.csv'
+
+=== Step 7: Hyperparameter Optimization ===
+
+Performing hyperparameter optimization for model ExtraTrees...
+
+Best hyperparameters: {'n_estimators': 108, 'max_depth': 17, 'min_samples_split': 7, 'min_samples_leaf': 1, 'max_features': None, 'bootstrap': False}
+Best R²: 0.6056
+Error creating optimization visualizations: 
+Image export using the "kaleido" engine requires the kaleido package,
+which can be installed using pip:
+    $ pip install -U kaleido
+
+
+Evaluating optimized model...
+Performance on transformed scale: R²: 0.6056 ± 0.2377, MAE: 0.3573, RMSE: 0.5085
+Performance on original scale: MAE: 7.0739, RMSE: 9.7505
+
+Improvement from hyperparameter optimization: -0.0246 (+-3.91%)
+Optimized model saved to 'feature_model_improvements_20250425_194340\models\optimized_model.pkl'
+
+=== Step 8: Visualizing Final Results ===
+Using optimized model for final predictions
+
+Final model performance:
+R²: 0.6129
+MAE: 7.0739
+RMSE: 9.7505
+
+Original model performance:
+R²: 0.6382
+MAE: 7.1493
+RMSE: 9.4262
+
+Total improvement: -0.0253 (+-3.97%)
+Final prediction results saved to 'feature_model_improvements_20250425_194340\final_predictions.csv'
+
+=== Step 9: Summarizing Improvements ===
+
+=== Improvement Summary ===
+Original Model: Gradient Boosting
+R²: 0.6382
+MAE: 7.1493
+RMSE: 9.4262
+
+Final Model: Voting Ensemble
+R²: 0.6129
+MAE: 7.0739
+RMSE: 9.7505
+
+Total Improvement: -0.0253 (+-3.97%)
+Best Feature Set: original
+Feature Selection Method: model_selected
+Final Feature Count: 29
+Target Variable Transformation: Log
+
+Feature engineering and model improvement completed! Total time: 0 hours 3 minutes 49.12 seconds
+All results and plots saved to directory: feature_model_improvements_20250425_194340

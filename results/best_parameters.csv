@@ -1,0 +1,10 @@
+,Extra Trees (Optimized),Gradient Boosting (Optimized),Random Forest (Optimized)
+bootstrap,False,,False
+max_features,,1.0,sqrt
+min_samples_leaf,1,6.0,1
+min_samples_split,2,6.0,2
+n_estimators,200,336.0,100
+alpha,,0.5727693701374024,
+learning_rate,,0.104306794322898,
+max_depth,,4.0,
+subsample,,0.8699205456508365,
